@@ -1,0 +1,9 @@
+.race-detail{
+  &_row{
+    display: flex;
+
+    img{
+      max-height: 100px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<section class="race-detail">
+  <div class="race-detail_row">
+    <h1>Nombre: {{race?.nombre}}</h1>
+    <div>
+      <img src="assets/img/races/{{race?.url}}.png" />
+    </div>
+  </div>
+
+  <strong>Corredores</strong>
+  <ul>
+    <li *ngFor="let rider of race?.corredores">
+      {{rider.nombre}}
+    </li>
+  </ul>
+
+  <form [formGroup]="form" novalidate>
+    <input [(ngModel)]="race.comments" matInput formControlName="comments" />
+  </form>
+</section>
+
+<app-button label="Guardar" (handleAction)="saveRace()"></app-button>

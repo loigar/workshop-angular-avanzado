@@ -1,0 +1,39 @@
+<section>
+  <div class="form-field">
+    <app-select [label]="'Seleccione carrera'" captionProperty="nombre"
+      [options]="raceData" (selectOption)="selectRace($event)">
+    </app-select>
+    <app-select [label]="'Seleccione corredor'" captionProperty="nombre"
+    [options]="ridersData" (selectOption)="addRider($event)">
+  </app-select>
+  </div>
+
+  <div *ngIf="selectedRaceData; else noRaceData">
+    <strong>{{selectedRaceData?.nombre}}</strong>
+    <ul>
+      <li *ngFor="let rider of selectedRaceData.corredores">{{rider?.nombre}}</li>
+    </ul>
+
+    <app-button label="Añadir" (handleAction)="configureRace()"></app-button>
+  </div>
+  <ng-template #noRaceData>
+    No se ha seleccionado carrera
+  </ng-template>
+
+  <hr />
+
+  <div *ngIf="configuredRaceData && configuredRaceData.length > 0">
+    Carreras configuradas:
+    <table>
+      <tbody>
+        <tr *ngFor="let configuredRace of configuredRaceData">
+          <td>{{configuredRace.nombre}}</td>
+          <td>
+            <app-button label="Detalle" (handleAction)="viewRace(configuredRace)"></app-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>

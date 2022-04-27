@@ -1,0 +1,9 @@
+.form-field{
+  padding: 20px;
+  display: flex;
+  column-gap: 50px;
+  
+  app-select{
+    width: 100%;
+  }
+}

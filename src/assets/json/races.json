@@ -1,0 +1,17 @@
+﻿[
+  {
+    "url": "giro-d-italia",
+    "nombre": "Giro d'Italia",
+    "fecha": "08.05 - 30.05"
+  },
+  {
+    "url": "tour-de-france",
+    "nombre": "Tour de France",
+    "fecha": "26.06 - 18.07"
+  },
+  {
+    "url": "vuelta-a-espana",
+    "nombre": "La Vuelta ciclista a España",
+    "fecha": "14.08 - 05.09"
+  }
+]

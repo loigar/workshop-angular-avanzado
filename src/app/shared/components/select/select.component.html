@@ -1,0 +1,6 @@
+<h4>{{label}}</h4>
+<mat-select (selectionChange)="onInput($event)">
+  <mat-option *ngFor="let option of options" [value]="option">
+    {{option[captionProperty]}}
+  </mat-option>
+</mat-select>
