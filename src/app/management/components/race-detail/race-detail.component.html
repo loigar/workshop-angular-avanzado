@@ -1,17 +1,15 @@
 <section class="race-detail">
   <div class="race-detail_row">
-    <h1>Nombre: {{race?.nombre}}</h1>
-    <div>
-      <img src="assets/img/races/{{race?.url}}.png" />
-    </div>
+    <h1>{{race?.nombre}}</h1>
+    <img src="assets/img/races/{{race?.url}}.png" />
   </div>
 
-  <strong>Corredores</strong>
-  <ul>
-    <li *ngFor="let rider of race?.corredores">
-      {{rider.nombre}}
-    </li>
-  </ul>
+  <div class="race-detail_list">
+    <div *ngFor="let rider of race?.corredores" class="race-detail_list-item">
+      <strong>{{rider.nombre}}</strong>
+      <small>{{rider.equipo}}</small>
+    </div>
+  </div>
 
   <form [formGroup]="form" novalidate>
     <input [(ngModel)]="race.comments" matInput formControlName="comments" />

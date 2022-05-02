@@ -1,9 +1,49 @@
-.form-field{
-  padding: 20px;
-  display: flex;
-  column-gap: 50px;
-  
-  app-select{
-    width: 100%;
+.races{
+
+  .form{
+    display: flex;
+    flex-direction: row;
+
+    &-field{
+      padding: 20px;
+      display: flex;
+      row-gap: 10px;
+      flex-direction: column;
+      width: 50%;
+      app-select{
+        width: 100%;
+      }
+
+    }
+
+    &-working{
+      padding: 30px;
+    }
   }
+
+  &_list {
+    width: 50vw;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      row-gap: 5px;
+      column-gap: 5px;
+      flex-direction: row;
+      padding: 5px;
+      border-bottom: solid 1px #3333;
+      justify-content: space-between;
+    }
+  }
+}
+
+
+.empty-list {
+  padding: 30px;
+  text-align: center;
 }

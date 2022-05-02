@@ -1,9 +1,34 @@
 .race-detail{
   &_row{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10%;
+    background-color: #CCCA;
+    padding: 10px;
 
     img{
       max-height: 100px;
+    }
+  }
+
+  &_list {
+    width: 50vw;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      row-gap: 5px;
+      column-gap: 5px;
+      flex-direction: row;
+      padding: 5px;
+      border-bottom: solid 1px #3333;
+      justify-content: space-between;
     }
   }
 }

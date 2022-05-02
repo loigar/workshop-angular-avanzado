@@ -1,39 +1,39 @@
-<section>
-  <div class="form-field">
-    <app-select [label]="'Seleccione carrera'" captionProperty="nombre"
-      [options]="raceData" (selectOption)="selectRace($event)">
-    </app-select>
-    <app-select [label]="'Seleccione corredor'" captionProperty="nombre"
-    [options]="ridersData" (selectOption)="addRider($event)">
-  </app-select>
-  </div>
+<section class="races">
+  <div class="form">
+    <div class="form-field">
+      <app-select [label]="'Seleccione carrera'" captionProperty="nombre"
+        [options]="raceData" (selectOption)="selectRace($event)">
+      </app-select>
+      <app-select [label]="'Seleccione corredor'" captionProperty="nombre"
+        [options]="ridersData" (selectOption)="addRider($event)">
+      </app-select>
+    </div>
 
-  <div *ngIf="selectedRaceData; else noRaceData">
-    <strong>{{selectedRaceData?.nombre}}</strong>
-    <ul>
-      <li *ngFor="let rider of selectedRaceData.corredores">{{rider?.nombre}}</li>
-    </ul>
-
-    <app-button label="Añadir" (handleAction)="configureRace()"></app-button>
+    <div class="form-working" *ngIf="selectedRaceData; else noRaceData">
+        <div *ngFor="let rider of selectedRaceData.corredores">{{rider?.nombre}}</div>
+        <app-button label="Actualizar"
+          [disabled]="!selectedRaceData.corredores || selectedRaceData.corredores.length === 0"
+          (handleAction)="configureRace()">
+        </app-button>
+    </div>
+    <ng-template #noRaceData>
+      <div class="empty-list">
+        No se ha seleccionado carrera
+      </div>
+    </ng-template>
   </div>
-  <ng-template #noRaceData>
-    No se ha seleccionado carrera
-  </ng-template>
 
   <hr />
 
   <div *ngIf="configuredRaceData && configuredRaceData.length > 0">
-    Carreras configuradas:
-    <table>
-      <tbody>
-        <tr *ngFor="let configuredRace of configuredRaceData">
-          <td>{{configuredRace.nombre}}</td>
-          <td>
-            <app-button label="Detalle" (handleAction)="viewRace(configuredRace)"></app-button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <strong>Carreras configuradas</strong>
+
+    <div class="races_list">
+      <div *ngFor="let configuredRace of configuredRaceData" class="races_list-item">
+        <strong>{{configuredRace.nombre}}</strong>
+        <app-button label="Detalle" (handleAction)="viewRace(configuredRace)"></app-button>
+      </div>
+    </div>
   </div>
 
 </section>

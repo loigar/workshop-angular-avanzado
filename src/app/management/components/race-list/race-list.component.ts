@@ -40,6 +40,7 @@ export class RaceListComponent implements OnInit {
   }
 
   addRider(rider: RiderInterface): void {
+    if (!this.selectedRaceData) return;
     if(!this.selectedRaceData.corredores) this.selectedRaceData.corredores = [];
     this.selectedRaceData.corredores.push(rider);
   }

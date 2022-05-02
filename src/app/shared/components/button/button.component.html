@@ -1,3 +1,6 @@
-<button id="basic" type="button" mat-raised-button  color="primary" (click)="handleAction.emit()">
+<button id="basic" type="button" mat-raised-button
+  color="primary"
+  [disabled]="disabled"
+  (click)="handleAction.emit()">
   {{label}}
 </button>
