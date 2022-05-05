@@ -53,13 +53,25 @@ header {
 }
 
 footer {
+  padding: 00px 30px;
   height: 20px;
   text-align: right;
   border-top: solid 1px #333;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   img{
-    height: 15px;
+    height: 20px;
+  }
+
+  div {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
+    img{
+      height: 15px;
+    }
   }
 }
