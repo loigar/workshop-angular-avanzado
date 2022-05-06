@@ -4,6 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { RaceService, RiderService } from '../../services';
 import { RiderInterface } from '../../interfaces';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { UciManagerState } from 'src/app/store';
+import * as AppActions from 'src/app/store/app.action';
 
 @Component({
   selector: 'app-race-list',
@@ -24,6 +28,7 @@ export class RaceListComponent implements OnInit {
     private riderService: RiderService,
     private router: Router,
     private storage: StorageService,
+    private store: Store<UciManagerState>,
   ) { }
 
   ngOnInit() {
@@ -48,10 +53,17 @@ export class RaceListComponent implements OnInit {
   configureRace(): void{
     if(this.isUpdate) this.storage.updateRace(this.selectedRaceData);
     else this.storage.addRace(this.selectedRaceData).subscribe(data => this.configuredRaceData = data);
+
+    this.store.dispatch(new AppActions.SetCurrentPageAsDirty(true));
     this.selectedRaceData = null;
   }
 
   viewRace(race: RaceInterface): void {
     this.router.navigate([`/management/race/${race.url}`])
+  }
+
+  saveChanges(): void {
+    this.store.dispatch(new AppActions.SetCurrentPageAsDirty(false));
+    this.storage.saveChanges();
   }
 }

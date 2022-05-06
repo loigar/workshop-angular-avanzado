@@ -5,6 +5,8 @@ import { RaceInterface, RiderInterface } from '../../management/interfaces';
 
 @Injectable()
 export class StorageService {
+  unsavedchanges: boolean = false;
+
   private races: RaceInterface[] = [];
 
   constructor(
@@ -26,18 +28,21 @@ export class StorageService {
   updateRace(race: RaceInterface): Observable<RaceInterface[]> {
     this.races.splice(this.races.findIndex(r => r.url === race.url), 1, race);
     localStorage.setItem('races', JSON.stringify(this.races));
+    this.unsavedchanges = true;
     return of(this.races);
   }
 
   deleteRace(race: RaceInterface): Observable<RaceInterface[]> {
     this.races = this.races.filter(r => r.url !== race.url);
     localStorage.setItem('races', JSON.stringify(this.races));
+    this.unsavedchanges = true;
     return of(this.races);
   }
 
   addRace(race: RaceInterface): Observable<RaceInterface[]> {
     this.races.push(race);
     localStorage.setItem('races', JSON.stringify(this.races));
+    this.unsavedchanges = true;
     return of(this.races);
   }
 
@@ -51,6 +56,11 @@ export class StorageService {
     if(!raceToUpdate.corredores) raceToUpdate.corredores = [];
     raceToUpdate.corredores.push(rider);
     localStorage.setItem('races', JSON.stringify(this.races));
+    this.unsavedchanges = true;
     return of(this.races);
+  }
+
+  saveChanges(): void {
+    this.unsavedchanges = false;
   }
 }

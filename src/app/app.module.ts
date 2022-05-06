@@ -4,6 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+
+import { environment } from 'src/environments/environment';
+
+import { appReducers } from './store';
 
 @NgModule({
   declarations: [
@@ -12,7 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot(appReducers,
+      {
+        metaReducers: !environment.production ? [] : [],
+      }),
   ],
   providers: [],
   bootstrap: [AppComponent]
