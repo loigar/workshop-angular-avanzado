@@ -8,7 +8,7 @@
         [options]="ridersData" (selectOption)="addRider($event)">
       </app-select>
 
-      <app-button label="Guardar" (handleAction)="saveChanges()"></app-button>
+      <app-button label="Guardar todo" (handleAction)="saveChanges()"></app-button>
     </div>
 
     <div class="form-working" *ngIf="selectedRaceData; else noRaceData">

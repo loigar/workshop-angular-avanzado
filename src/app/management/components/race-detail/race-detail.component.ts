@@ -3,6 +3,7 @@ import { RaceInterface } from './../../interfaces/race.interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-race-detail',
@@ -19,6 +20,7 @@ export class RaceDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private storage: StorageService,
     private formBuilder: FormBuilder,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -43,6 +45,10 @@ export class RaceDetailComponent implements OnInit {
     this.storage.updateRace(this.race).subscribe(value => alert('operación realizada'));
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
   private setSubscriptionsToFormChanges(): void {
 
     this.form.get('comments').valueChanges.subscribe(value => console.log(value))
@@ -52,7 +58,4 @@ export class RaceDetailComponent implements OnInit {
         this.isTouchedForm = true;
       });
   }
-
-
-
 }

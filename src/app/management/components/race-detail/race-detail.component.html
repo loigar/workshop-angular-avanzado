@@ -9,11 +9,12 @@
       <strong>{{rider.nombre}}</strong>
       <small>{{rider.equipo}}</small>
     </div>
+
+    <app-button label="Volver" (handleAction)="goBack()"></app-button>
   </div>
 
-  <form [formGroup]="form" novalidate>
+  <!-- <form [formGroup]="form" novalidate>
     <input [(ngModel)]="race.comments" matInput formControlName="comments" />
-  </form>
+  </form> -->
 </section>
 
-<app-button label="Guardar" (handleAction)="saveRace()"></app-button>
