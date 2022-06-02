@@ -1,5 +1,6 @@
 
 
+
 # Introducción 
 
 Workshop de Angular Avanzado: Rendimiento, arquitectura, buenas prácticas
@@ -14,19 +15,19 @@ Workshop de Angular Avanzado: Rendimiento, arquitectura, buenas prácticas
 # Temario
 
  1. Detección del cambio en Angular
- 		- Comunicación entre componentes
- 		- Estrategia de detección de cambios
+       - Comunicación entre componentes
+       - Estrategia de detección de cambios
  2. Navegación y datos
-		- Ciclo de vida en Angular
-    	- Environment
-    	- Router
-    	- Lazy loading
-    	- Rutas parametrizadas
-    	- Ejecuciones previas a la navegación: resolvers y guards
+	   - Ciclo de vida en Angular
+       - Environment
+       - Router
+       - Lazy loading
+       - Rutas parametrizadas
+       - Ejecuciones previas a la navegación: resolvers y guards
  3. Tratamiento asíncrono de datos con RxJS
-		- Operadores multillamada con RxJS (flatMap, forkJoin y similares)
-    	- Pipe async
-    	- Store reactivo para comunicación asíncrona global. Patrón redux
+       - Operadores multillamada con RxJS (flatMap, forkJoin y similares)
+       - Pipe async
+       - Store reactivo para comunicación asíncrona global. Patrón redux
  4. Tips
  
 # Grabación
