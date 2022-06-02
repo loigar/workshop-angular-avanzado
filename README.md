@@ -34,9 +34,9 @@ _proximamente_
   - Sesión [**02.06.2022**]()
 
 # Material de apoyo
-
-- [Presentación](https://tokiota-my.sharepoint.com/:p:/p/leonardo_micheloni/Eb1M38o5kF9ImR1ISC00QjEBy9cMbKluL5XOGwweNsvWJg?e=rV6jFX)
-- [Seed](https://tokiota-my.sharepoint.com/:u:/r/personal/luis_loira_tokiota_com/Documents/FORMACION/WORKSHOP%20ANGULAR/Angular-intro__seed.7z?csf=1&web=1&e=B0XLuO): Proyecto de partida para la realización de la práctica
+_proximamente_
+- [Presentación]()
+- [Seed](): Proyecto de partida para la realización de la práctica
 
 # Preguntas de auto-evaluación
 
